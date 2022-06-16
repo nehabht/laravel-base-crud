@@ -17,7 +17,7 @@
             <h1>header</h1>
         </header>
         <main>
-            @yiel('content')
+            @yield('content')
         </main>
         <footer></footer>
 

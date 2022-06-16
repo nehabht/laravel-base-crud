@@ -16,3 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+
+/* scorciatoria per le rotte sopra */
+Route::resource('/comics', 'ComicController');
