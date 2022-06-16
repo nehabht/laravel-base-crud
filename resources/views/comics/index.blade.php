@@ -8,7 +8,7 @@
   <div class="heading d-flex justify-content-between align-items-center">
     <h1 class="p-5">Comics</h1>
     <div>
-      <a class="btn btn-primary d-block" href="{{route('comics.create')}}">Create Game</a>
+      <a class="btn btn-primary d-block" href="{{route('comics.create')}}">Add Comic</a>
     </div>
   </div>
 
