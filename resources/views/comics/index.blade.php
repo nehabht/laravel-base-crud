@@ -32,7 +32,7 @@
         <td><img width="50" src="{{$comic->thumb}}" alt=""></td>
         <td>{{ $comic->title }}</td>
         <td>{{ $comic->description }}</td>
-        <td>{{ $comic->price }}</td>
+        <td> $ {{ $comic->price }}</td>
         <td>{{ $comic->type }}</td>
         <td><img width="50" src="{{$comic->cover_image}}" alt=""></td>
         <td><a href="{{route('comics.show', $comic->id)}}">View</a>- Edit - Delete</td>
