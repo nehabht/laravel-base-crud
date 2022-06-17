@@ -25,7 +25,7 @@
         </div>
         <div class="form-group">
             <label for="price">Price</label>
-            <input type="text" name="price" id="price" class="form-control" placeholder="Tyoe the price" aria-describedby="thumbHelper">
+            <input type="number" step="0.01" name="price" id="price" class="form-control" placeholder="Tyoe the price" aria-describedby="thumbHelper">
         </div>
         <div class="form-group">
             <label for="series">Series</label>
