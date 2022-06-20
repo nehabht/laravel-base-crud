@@ -10,7 +10,7 @@
         
 
         <div class="back mt-4">
-            <a class="btn btn-primary " href="{{ route('comics.index')}}"> All comics</a>
+            <a class="btn btn-primary " href="{{ route('comics.index')}}"> Back</a>
         </div>
     </div>
 </section>

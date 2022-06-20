@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Comic;
+use App\Http\Requests\ComicRequest;
 use Illuminate\Http\Request;
 
 class ComicController extends Controller
@@ -32,18 +33,31 @@ class ComicController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request\ComicRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ComicRequest $request)
     {
         //dd($request);
         //dd($request->all());
 
-
         // metodo create
-        $data = $request->all();
-        Comic::create($data);
+        // $data = $request->all();
+
+        // validazione
+        // $validated_data = $request->validate([
+        //     "title" => "required",
+        //     "description" => "nullable",
+        //     "thumb" => "required",
+        //     "price" => "required",
+        //     "series" => "nullable",
+        //     "sale_date" => "nullable",
+        //     "type" => "nullable|max:50"
+        // ]);
+
+        $validated_data = $request->validated();
+
+        Comic::create($validated_data);
 
         // per non permettergli di aggiungere il recond ad ogni refresh
         return redirect()->route('comics.index');
@@ -75,13 +89,30 @@ class ComicController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Requests\ComicRequest  $request
      * @param  \App\Comic  $comic
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Comic $comic)
+    public function update(ComicRequest $request, Comic $comic)
     {
-        //
+        //dd($request->all());
+         //$data = $request->all();
+        
+        // $validated_data = $request->validate([
+        //     "title" => "required",
+        //     "description" => "nullable",
+        //     "thumb" => "required",
+        //     "price" => "required",
+        //     "series" => "nullable",
+        //     "sale_date" => "nullable",
+        //     "type" => "nullable|max:50"
+        // ]);
+        // modifica Request con ComicRequest dopo aver creato e esportato le regole in ComicRequest
+        // modifica importa la richiesta riga #6
+
+        $validated_data = $request->validated();
+        $comic->update($validated_data);
+        return redirect()->route('comics.show',compact('comic'));
     }
 
     /**
